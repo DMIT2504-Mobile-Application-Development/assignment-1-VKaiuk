@@ -83,4 +83,15 @@ class CurrentWeather {
     }
     _sunset = value;
   }
+
+
+  CurrentWeather(String city, String description, double currentTemp,
+                  DateTime currentTime, DateTime sunrise, DateTime sunset){
+    this.city = city;
+    this.description = description;
+    this.currentTemp = currentTemp;
+    this.currentTime = currentTime;
+    this.sunrise = sunrise;
+    this.sunset = sunset;
+  }
 }
