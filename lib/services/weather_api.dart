@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 const weatherApiKey = 'c7b75dcfcfc0df18176181947f3115c9';
 const currentWeatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather';
 
-Future<dynamic> getWeatherForCity(String city) async {
+Future<dynamic> getWeatherForCity({required String city}) async {
   final api = '$currentWeatherEndpoint?units=metric&q=$city&appid=$weatherApiKey';
 
   try {

@@ -85,13 +85,18 @@ class CurrentWeather {
   }
 
 
-  CurrentWeather(String city, String description, double currentTemp,
-                  DateTime currentTime, DateTime sunrise, DateTime sunset){
+  CurrentWeather({required String city, required String description, required double currentTemp,
+      required DateTime currentTime, required DateTime sunrise, required DateTime sunset}){
     this.city = city;
     this.description = description;
     this.currentTemp = currentTemp;
     this.currentTime = currentTime;
     this.sunrise = sunrise;
     this.sunset = sunset;
+  }
+
+  @override
+  String toString() {
+      return 'City: $_city, Description: $_description, Current Temperature: $_currentTemp, Current Time: $_currentTime, Sunrise: $_sunrise, Sunset: $_sunset';
   }
 }
