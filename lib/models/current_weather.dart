@@ -79,7 +79,7 @@ class CurrentWeather {
     }
 
     if(value.isBefore(_sunrise)) {
-      throw Exception('Sunset cannot be after sunset');
+      throw Exception('Sunset cannot be before sunrise');
     }
     _sunset = value;
   }
@@ -91,10 +91,19 @@ class CurrentWeather {
     this.description = description;
     this.currentTemp = currentTemp;
     this.currentTime = currentTime;
+    _sunset = sunset;
     this.sunrise = sunrise;
     this.sunset = sunset;
   }
 
+  factory CurrentWeather.fromOpenWeatherData(dynamic data) {
+    return CurrentWeather(city: data['name'],
+                          description: description,
+                          currentTemp: currentTemp,
+                          currentTime: currentTime,
+                          sunrise: sunrise,
+                          sunset: sunset)
+  }
   @override
   String toString() {
       return 'City: $_city, Description: $_description, Current Temperature: $_currentTemp, Current Time: $_currentTime, Sunrise: $_sunrise, Sunset: $_sunset';
