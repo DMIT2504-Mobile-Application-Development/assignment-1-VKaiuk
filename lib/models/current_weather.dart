@@ -97,12 +97,12 @@ class CurrentWeather {
   }
 
   factory CurrentWeather.fromOpenWeatherData(dynamic data) {
-    return CurrentWeather(city: data['name'],
-                          description: description,
-                          currentTemp: currentTemp,
-                          currentTime: currentTime,
-                          sunrise: sunrise,
-                          sunset: sunset)
+    return CurrentWeather(city: data['name'] ?? '',
+                          description: data['weather'][0]['description'] ?? '',
+                          currentTemp: (data['main']['temp'] as num).toDouble(),
+                          currentTime: DateTime.fromMillisecondsSinceEpoch((data['dt'] as num).toInt() * 1000, isUtc: true).toLocal(),
+                          sunrise: DateTime.fromMillisecondsSinceEpoch((data['sys']['sunrise'] as num).toInt() * 1000, isUtc: true).toLocal(),
+                          sunset: DateTime.fromMillisecondsSinceEpoch((data['sys']['sunset'] as num).toInt() * 1000, isUtc: true).toLocal());
   }
   @override
   String toString() {
