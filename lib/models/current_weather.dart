@@ -103,7 +103,7 @@ class CurrentWeather {
                           currentTime: DateTime.fromMillisecondsSinceEpoch((data['dt'] as num).toInt() * 1000, isUtc: true).toLocal(),
                           sunrise: DateTime.fromMillisecondsSinceEpoch((data['sys']['sunrise'] as num).toInt() * 1000, isUtc: true).toLocal(),
                           sunset: DateTime.fromMillisecondsSinceEpoch((data['sys']['sunset'] as num).toInt() * 1000, isUtc: true).toLocal());
-  }
+  } // I have not found any info about factory constructors on your workbooks, so I went for information on main dart website
   @override
   String toString() {
       return 'City: $_city, Description: $_description, Current Temperature: $_currentTemp, Current Time: $_currentTime, Sunrise: $_sunrise, Sunset: $_sunset';
